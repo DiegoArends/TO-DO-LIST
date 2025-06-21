@@ -1,6 +1,7 @@
 // Archivo para la lógica del frontend 
 
 document.addEventListener('DOMContentLoaded', () => {
+    const API_URL = 'https://to-do-list-back-9lbn.onrender.com/api/tasks';
     const taskList = document.getElementById('task-list');
     const newTaskInput = document.getElementById('new-task-input');
     const addTaskBtn = document.getElementById('add-task-btn');
@@ -77,7 +78,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Función para obtener las tareas del backend
     const fetchTasks = async () => {
         try {
-            const response = await fetch('http://localhost:3000/api/tasks');
+            const response = await fetch(API_URL);
             if (!response.ok) {
                 throw new Error('No se pudo conectar con el servidor.');
             }
@@ -142,7 +143,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         try {
-            const response = await fetch('http://localhost:3000/api/tasks', {
+            const response = await fetch(API_URL, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -168,7 +169,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Función para cambiar el estado de una tarea
     const toggleTask = async (taskId, completed) => {
         try {
-            const response = await fetch(`http://localhost:3000/api/tasks/${taskId}`, {
+            const response = await fetch(`${API_URL}/${taskId}`, {
                 method: 'PUT',
                 headers: {
                     'Content-Type': 'application/json',
@@ -203,7 +204,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         try {
-            const response = await fetch(`http://localhost:3000/api/tasks/${taskId}`, {
+            const response = await fetch(`${API_URL}/${taskId}`, {
                 method: 'DELETE'
             });
 
