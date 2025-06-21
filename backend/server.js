@@ -4,7 +4,13 @@ const fs = require('fs');
 const path = require('path');
 const app = express();
 
-app.use(cors());
+// Configuración de CORS más explícita
+app.use(cors({
+    origin: '*', // Permite cualquier origen. Para mayor seguridad, podrías poner la URL de tu frontend.
+    methods: ['GET', 'POST', 'PUT', 'DELETE'],
+    allowedHeaders: ['Content-Type']
+}));
+
 app.use(express.json());
 
 // Archivo para guardar las tareas
