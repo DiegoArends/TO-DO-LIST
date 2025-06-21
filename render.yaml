@@ -1,0 +1,10 @@
+services:
+  - type: web
+    name: todo-list-app
+    env: node
+    buildCommand: cd backend && npm install
+    startCommand: cd backend && npm start
+    envVars:
+      - key: NODE_ENV
+        value: production
+    plan: free 

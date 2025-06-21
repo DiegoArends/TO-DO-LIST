@@ -1,0 +1,258 @@
+/* Variables CSS para temas */
+:root {
+    /* Tema oscuro (por defecto) */
+    --bg-primary: #1a1a1a;
+    --bg-secondary: #2d2d2d;
+    --border-color: #404040;
+    --text-primary: #ffffff;
+    --text-secondary: #888888;
+    --accent-color: #007bff;
+    --hover-color: #404040;
+    --shadow: 0 2px 4px rgba(0,0,0,0.3);
+}
+
+/* Tema claro */
+body.light-theme {
+    --bg-primary: #f4f4f4;
+    --bg-secondary: #ffffff;
+    --border-color: #ddd;
+    --text-primary: #333;
+    --text-secondary: #666;
+    --accent-color: #007bff;
+    --hover-color: #f0f0f0;
+    --shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+body {
+    font-family: sans-serif;
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+    line-height: 1.6;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0;
+    transition: all 0.3s ease;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 80%;
+    max-width: 500px;
+    margin: 20px 0;
+}
+
+h1 {
+    color: var(--text-primary);
+    margin: 0;
+}
+
+.theme-toggle {
+    background: none;
+    border: 2px solid var(--border-color);
+    border-radius: 50%;
+    width: 45px;
+    height: 45px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    background-color: var(--bg-secondary);
+}
+
+.theme-toggle:hover {
+    border-color: var(--accent-color);
+    transform: scale(1.1);
+}
+
+.theme-icon {
+    font-size: 20px;
+}
+
+.add-task-form {
+    margin: 20px 0;
+    display: flex;
+    gap: 10px;
+    width: 80%;
+    max-width: 500px;
+}
+
+#new-task-input {
+    flex: 1;
+    padding: 10px;
+    border: 1px solid var(--border-color);
+    border-radius: 5px;
+    font-size: 16px;
+    background-color: var(--bg-secondary);
+    color: var(--text-primary);
+}
+
+#new-task-input::placeholder {
+    color: var(--text-secondary);
+}
+
+#add-task-btn {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+#add-task-btn:hover {
+    background-color: #0056b3;
+}
+
+.filter-buttons {
+    margin: 20px 0;
+    display: flex;
+    gap: 10px;
+    width: 80%;
+    max-width: 500px;
+    justify-content: flex-start;
+}
+
+.filter-btn {
+    padding: 8px 16px;
+    background-color: var(--bg-secondary);
+    color: var(--text-secondary);
+    border: 1px solid var(--border-color);
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: all 0.2s;
+}
+
+.filter-btn:hover {
+    background-color: var(--hover-color);
+    color: var(--text-primary);
+}
+
+.filter-btn.active {
+    background-color: var(--accent-color);
+    color: white;
+    border-color: var(--accent-color);
+}
+
+.task-stats {
+    margin: 20px 0;
+    padding: 15px;
+    background-color: var(--bg-secondary);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    width: 80%;
+    max-width: 500px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.stat-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.stat-label {
+    font-size: 12px;
+    color: var(--text-secondary);
+    font-weight: 500;
+    margin-bottom: 4px;
+}
+
+.stat-value {
+    font-size: 18px;
+    font-weight: bold;
+    color: var(--text-primary);
+}
+
+#progress-percentage {
+    color: #28a745;
+}
+
+#task-list {
+    list-style: none;
+    padding: 0;
+    width: 80%;
+    max-width: 500px;
+}
+
+.task-item {
+    background-color: var(--bg-secondary);
+    border: 1px solid var(--border-color);
+    padding: 15px;
+    margin-bottom: 8px;
+    border-radius: 5px;
+    box-shadow: var(--shadow);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.task-checkbox {
+    width: 18px;
+    height: 18px;
+    cursor: pointer;
+    accent-color: var(--accent-color);
+}
+
+.task-text {
+    flex: 1;
+    font-size: 16px;
+    color: var(--text-primary);
+}
+
+.task-text.completed {
+    text-decoration: line-through;
+    color: var(--text-secondary);
+}
+
+.delete-btn {
+    background: none;
+    border: none;
+    font-size: 18px;
+    cursor: pointer;
+    padding: 5px;
+    border-radius: 3px;
+    transition: background-color 0.2s;
+    color: #ff6b6b;
+}
+
+.delete-btn:hover {
+    background-color: var(--hover-color);
+}
+
+.task-item.completed {
+    background-color: #f9f9f9;
+}
+
+/* Efectos adicionales para el tema oscuro */
+.task-item:hover {
+    border-color: #007bff;
+    transform: translateY(-1px);
+    transition: all 0.2s ease;
+}
+
+/* Scrollbar personalizada para el tema oscuro */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #1a1a1a;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #404040;
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #555555;
+} 
